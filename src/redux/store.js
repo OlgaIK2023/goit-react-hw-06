@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from "redux";
 import { devToolsEnhancer } from "@redux-devtools/extension";
-import { contactlistReducer } from "./contactlist";
+import { contactlistReducer } from "./contactlist/contactlistReducer";
 
 
 const rootReducer = combineReducers(
