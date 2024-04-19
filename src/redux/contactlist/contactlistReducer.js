@@ -3,7 +3,7 @@ const INITIAL_STATE = {
   filter: "",
 };
 
-export const contactListReducer = (state = INITIAL_STATE, action) => {
+export const contactlistReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "contactlist/addContact": {
         return {
@@ -27,3 +27,4 @@ export const contactListReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
