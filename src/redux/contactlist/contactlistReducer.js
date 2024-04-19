@@ -4,5 +4,5 @@ const INITIAL_STATE = {
 }
 
 export const contactListReducer = (state = INITIAL_STATE, action) => {
-    
+    return state;
 }

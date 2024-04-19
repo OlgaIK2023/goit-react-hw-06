@@ -5,6 +5,7 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
 import { nanoid } from "nanoid";
+import { useSelector } from "react-redux";
 
 const initialContacts = [
   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
@@ -17,20 +18,26 @@ const initialContacts = [
 //APP code below
 
 function App() {
-  const [contacts, setContacts] = useState(() => {
-    const savedContacts = window.localStorage.getItem("saved-Contacts");
-    if (savedContacts !== null) {
-      return JSON.parse(savedContacts);
-    }
-    return initialContacts;
+  // const [contacts, setContacts] = useState(() => {
+  //   const savedContacts = window.localStorage.getItem("saved-Contacts");
+  //   if (savedContacts !== null) {
+  //     return JSON.parse(savedContacts);
+  //   }
+  //   return initialContacts;
+  // });
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("saved-Contacts", JSON.stringify(contacts)),
+  //     [contacts];
+  // });
+
+  // const [filter, setFilter] = useState("");
+
+  const contacts = useSelector((state) => {
+    return state.contactList.contacts;
   });
 
-  useEffect(() => {
-    window.localStorage.setItem("saved-Contacts", JSON.stringify(contacts)),
-      [contacts];
-  });
-
-  const [filter, setFilter] = useState("");
+  const filter = useSelector((state) => state.contactList.filter);
 
   const onChangeFilter = (event) => {
     setFilter(event.target.value);
