@@ -17,6 +17,12 @@ export const contactListReducer = (state = INITIAL_STATE, action) => {
             contacts: state.contacts.filter ((contact ) => contact.id !== action.payload)
         }
     }
+    case "contactlist/setFilter": {
+        return {
+            ...state,
+            filter: action.payload
+        }
+    }
     default:
       return state;
   }

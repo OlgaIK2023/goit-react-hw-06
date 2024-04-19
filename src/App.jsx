@@ -60,12 +60,15 @@ function App() {
   const onDeleteContact = (contactId) => {
     const action = {type: "contactlist/deleteContact", payload: contactId };
     dispatch(action);
-    
+
     // setContacts((prevContacts) => prevContacts.filter((contact) => contact.id !== contactId));
   };
 
   const onChangeFilter = (event) => {
-    setFilter(event.target.value);
+    const action = {type: "contactlist/setFilter", payload: event.target.value };
+    dispatch(action);
+    
+    // setFilter(event.target.value);
   };
 
 
