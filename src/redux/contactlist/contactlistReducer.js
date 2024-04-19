@@ -1,8 +1,17 @@
 const INITIAL_STATE = {
-    contacts: [],
-    filter: '', 
-}
+  contacts: [],
+  filter: "",
+};
 
 export const contactListReducer = (state = INITIAL_STATE, action) => {
-    return state;
-}
+  switch (action.type) {
+    case "contactlist/addContact": {
+        return {
+            ...state,
+            contacts: [...state.contacts, action.payload],
+        }
+    }
+    default:
+      return state;
+  }
+};
