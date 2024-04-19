@@ -58,9 +58,10 @@ function App() {
   );
 
   const onDeleteContact = (contactId) => {
-    setContacts((prevContacts) =>
-      prevContacts.filter((contact) => contact.id !== contactId)
-    );
+    const action = {type: "contactlist/deleteContact", payload: contactId };
+    dispatch(action);
+    
+    // setContacts((prevContacts) => prevContacts.filter((contact) => contact.id !== contactId));
   };
 
   const onChangeFilter = (event) => {
