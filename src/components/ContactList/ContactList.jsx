@@ -14,11 +14,7 @@ const ContactList = () => {
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
-  // const onChangeFilter = (event) => {
-  //   const action = setFilter(event.target.value);
-
-  //   dispatch(action);
-  // };
+ 
 
   return (
     <ul className={css.list}>

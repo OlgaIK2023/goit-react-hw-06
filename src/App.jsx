@@ -23,7 +23,7 @@ function App() {
     <div>
       <h1>Phonebook</h1>
       <ContactForm />
-      <SearchBox filter={filter} onChangeFilter={onChangeFilter} />
+      <SearchBox />
 
       <ContactList/>
     </div>
