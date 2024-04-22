@@ -2,7 +2,7 @@
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import { useSelector, useDispatch } from "react-redux";
 
 import {deleteContact,setFilter} from "./redux/contactlistReducer";
@@ -17,47 +17,15 @@ import {deleteContact,setFilter} from "./redux/contactlistReducer";
 //APP code below
 
 function App() {
-  const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contactList.contacts);
-  const filter = useSelector((state) => state.contactList.filter);
-
-  const addContact = (newContact) => {
-    const finalContact = {
-      ...newContact,
-      id: nanoid(),
-    };
-
-    const action = addContact(finalContact);
-
-    dispatch(action);
-  };
-
-  const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
-
-  const onDeleteContact = (contactId) => {
-    const action = deleteContact(contactId);
-
-    dispatch(action);
-  };
-
-  const onChangeFilter = (event) => {
-    const action = setFilter(event.target.value);
-
-    dispatch(action);
-  };
+  
 
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm addContact={addContact} />
+      <ContactForm />
       <SearchBox filter={filter} onChangeFilter={onChangeFilter} />
 
-      <ContactList
-        contacts={filteredContacts}
-        onDeleteContact={onDeleteContact}
-      />
+      <ContactList/>
     </div>
   );
 }
