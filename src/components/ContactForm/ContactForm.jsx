@@ -3,7 +3,7 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import css from "./ContactForm.module.css";
 import { useId } from "react";
 import { useDispatch } from 'react-redux'
-import { addContact } from '../../redux/contactlistReducer'
+import { addContact } from '../../redux/contactsSlice'
 import { nanoid } from "@reduxjs/toolkit";
 
 const initialValues = {
